@@ -1,0 +1,126 @@
+/* --- First Blood Video Styles --- */
+.first-blood-video-container { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5); 
+    z-index: 9999;
+    opacity: 0;
+    animation: firstBloodVideoAppear 0.5s ease-out forwards, firstBloodVideoFade 1s 2.5s ease-in forwards; 
+    width: 80vw; 
+    max-width: 720px;
+    height: auto; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    background-color: transparent; 
+}
+
+.first-blood-video-container video {
+    max-width: 100%;
+    max-height: 100%;
+    display: block; 
+    border-radius: 10px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7), 0 0 30px #FF0000; 
+}
+
+@keyframes firstBloodVideoAppear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.0); 
+    }
+}
+
+@keyframes firstBloodVideoFade {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.7);
+        display: none;
+    }
+}
+
+/* --- Game Over Message Styles --- */
+.game-winner-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    padding: 30px 60px;
+    background-color: rgba(0, 50, 150, 0.9);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 56px;
+    font-weight: bold;
+    border: 4px solid #FFD700;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5), 0 0 40px #FFD700;
+    text-shadow: 2px 2px 4px #000;
+    z-index: 10001; 
+    opacity: 0;
+    animation: winnerMessageAppear 0.7s ease-out forwards, winnerMessageFade 1s 3s ease-in forwards;
+    text-align: center;
+}
+
+@keyframes winnerMessageAppear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1) translateY(0px);
+    }
+}
+
+@keyframes winnerMessageFade {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1) translateY(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.7) translateY(-20px);
+        display: none;
+    }
+}
+
+/* --- Confetti Styles --- */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    overflow: hidden;
+    z-index: 10000; 
+}
+
+.confetti-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00; 
+    opacity: 0;
+    animation: fall 3s linear forwards; 
+}
+
+@keyframes fall {
+    0% {
+        opacity: 1;
+        transform: translateY(-20px) rotate(0deg); 
+    }
+    100% {
+        opacity: 0.5; 
+        transform: translateY(100vh) rotate(720deg); 
+    }
+}

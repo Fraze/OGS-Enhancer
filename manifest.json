@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "OGS Enhancer",
+  "version": "0.4.2", 
+  "description": "Adds custom animations and sounds to online-go.com.",
+  "permissions": [
+    "storage" 
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://online-go.com/*"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "first_blood.webm", 
+        "black_wins.mp3", 
+        "white_wins.mp3",
+        "icons/icon16.png", 
+        "icons/icon32.png",
+        "icons/icon48.png",
+        "icons/icon128.png"
+      ], 
+      "matches": ["*://online-go.com/*"]
+    }
+  ]
+}
